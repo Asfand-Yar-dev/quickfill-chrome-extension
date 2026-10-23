@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QuickFill Snippets</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="logo-icon">⚡</span>
+      <div>
+        <h1>QuickFill</h1>
+        <p class="subtitle">Type shortcut anywhere to auto-fill</p>
+      </div>
+    </div>
+    <label class="switch" title="Enable or disable auto-expansion">
+      <input type="checkbox" id="enableToggle" checked />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main class="container">
+    <!-- Add / Edit Snippet Form -->
+    <form id="snippetForm" class="snippet-form">
+      <input type="hidden" id="editId" value="" />
+      <div class="form-row">
+        <div class="field shortcut-field">
+          <label for="shortcutInput">Shortcut</label>
+          <input type="text" id="shortcutInput" placeholder="/li" required />
+        </div>
+        <div class="field label-field">
+          <label for="labelInput">Label</label>
+          <input type="text" id="labelInput" placeholder="LinkedIn" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="valueInput">URL or Text to Expand</label>
+        <input type="text" id="valueInput" placeholder="https://linkedin.com/in/username" required />
+      </div>
+      <div class="form-actions">
+        <button type="submit" id="saveBtn" class="btn-primary">+ Save Shortcut</button>
+        <button type="button" id="cancelEditBtn" class="btn-secondary hidden">Cancel</button>
+      </div>
+    </form>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search shortcuts or links..." />
+    </div>
+
+    <!-- Snippets List -->
+    <div id="snippetsList" class="snippets-list"></div>
+  </main>
+
+  <div id="toast" class="toast hidden">Copied to clipboard!</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
